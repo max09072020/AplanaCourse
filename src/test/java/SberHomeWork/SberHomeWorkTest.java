@@ -1,37 +1,17 @@
 package SberHomeWork;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
-public class SberHomeWork {
+public class SberHomeWorkTest extends BaseTest {
 
-    private WebDriver mydriver;
-    private String baseURL;
-
-    @Before
-    public void beforeTest (){
-
-        System.setProperty("webdriver.chrome.driver", "src/resources/chromedriver.exe");
-        mydriver = new ChromeDriver();
-        mydriver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        mydriver.manage().window().maximize();
-        baseURL = "http://www.sberbank.ru/ru/person";
-
-        // step 1
-        mydriver.get(baseURL);
-    }
     @Test
-    public void mainTest(){
+    @Ignore
+    public void test_1(){
         // step 2 - 3
+        mydriver.get(baseURL);
         mydriver.findElement(By.xpath("//li[@class = 'lg-menu__item']//button[@aria-label= 'Меню Страхование']")).click();
         mydriver.findElement(By.xpath("//ul[@aria-label ='Подменю']//a[contains(@href, 'insuranceprogram/life/travel')]")).click();
 
@@ -119,8 +99,4 @@ public class SberHomeWork {
 
     }
 
-    @After
-    public void afterTest(){
-        mydriver.quit();
-    }
 }
