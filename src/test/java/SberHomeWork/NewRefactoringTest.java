@@ -1,18 +1,20 @@
 package SberHomeWork;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.Keys;
-import util.pages.FormPage;
-import util.pages.MainPage;
+import pages.FormPage;
+import pages.MainPage;
+import steps.BaseSteps;
 
-import java.util.ArrayList;
 import java.util.Set;
 
-public class NewRefactoringTest extends BaseTest {
+public class NewRefactoringTest extends BaseSteps {
     private MainPage mainPage;
     private FormPage formPage;
 
+    @Ignore
     @Test
     public void mainTest (){
 

@@ -3,12 +3,14 @@ package SberHomeWork;
 import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import steps.BaseSteps;
+
 import java.util.concurrent.TimeUnit;
 
-public class SberHomeWorkTest extends BaseTest {
+public class SberHomeWorkTest extends BaseSteps {
 
-    @Test
     @Ignore
+    @Test
     public void test_1(){
         // step 2 - 3
         mydriver.get(baseURL);

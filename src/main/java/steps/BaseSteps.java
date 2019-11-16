@@ -1,4 +1,4 @@
-package SberHomeWork;
+package steps;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -9,11 +9,15 @@ import util.TestProperties;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-public class BaseTest {
+public class BaseSteps {
 
     protected static WebDriver mydriver;
     protected static String baseURL;
     public static Properties properties = TestProperties.getOnlyOne().getProperties();
+
+    public static WebDriver getMydriver() {
+        return mydriver;
+    }
 
     @BeforeClass
     public static void setUp(){
