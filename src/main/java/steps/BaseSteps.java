@@ -1,7 +1,7 @@
 package steps;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import util.TestProperties;
@@ -19,7 +19,7 @@ public class BaseSteps {
         return mydriver;
     }
 
-    @BeforeClass
+    @Before
     public static void setUp(){
         System.setProperty("webdriver.chrome.driver", properties.getProperty("webdriver.chrome.driver"));
         mydriver = new ChromeDriver();
@@ -29,7 +29,7 @@ public class BaseSteps {
         mydriver.get(baseURL);
 
     }
-    @AfterClass
+    @After
     public static void wrapUp(){
         mydriver.quit();
     }
