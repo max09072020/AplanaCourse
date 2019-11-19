@@ -8,7 +8,7 @@ import java.util.Properties;
 public class TestProperties {
 
     private final Properties myproperties = new Properties();
-    private static TestProperties ONLYONE = null;
+    private static TestProperties INSTANCE = null;
 
     private TestProperties(){
         try{
@@ -17,11 +17,11 @@ public class TestProperties {
             e.printStackTrace();
         }
     }
-    public static TestProperties getOnlyOne(){
-        if (ONLYONE == null){
-            ONLYONE = new TestProperties();
+    public static TestProperties getINSTANCE(){
+        if (INSTANCE == null){
+            INSTANCE = new TestProperties();
         }
-        return ONLYONE;
+        return INSTANCE;
     }
     public Properties getProperties() { return myproperties ;}
 }

@@ -16,6 +16,7 @@ public class AllureRecordTest extends BaseSteps {
     @Title("Страхование путешественника")
     public void mainTest (){
 
+        // Пред условия к тесту
         MainSteps mainSteps = new MainSteps();
         FormSteps formSteps = new FormSteps();
 
@@ -23,7 +24,6 @@ public class AllureRecordTest extends BaseSteps {
         data.put("LastName", "PETROV");
         data.put("Name", "IVAN");
         data.put("DOB", "09.07.1982");
-
         data.put("Фамилия", "БАШИРОВ");
         data.put("Имя", "ИВАН");
         data.put("Отчество", "АЛЕКСОВИЧ");
@@ -33,10 +33,12 @@ public class AllureRecordTest extends BaseSteps {
         data.put("Дата Выдачи","12.12.2012");
         data.put("Место Выдачи","УВД Черный лебедь");
 
+        // Step 1 - 4
         mainSteps.selectMainMenuStep("Меню Страхование");
         mainSteps.selectSubMainMenuStep("Страхование путешественников");
         Assert.assertEquals(mydriver.getTitle(),"«Сбербанк» - Страхование путешественников");
 
+        // Step 5
         String oldTab = mydriver.getWindowHandle();
         mainSteps.onLineFormPushStep();
         Set<String> tabs = mydriver.getWindowHandles();
@@ -45,12 +47,18 @@ public class AllureRecordTest extends BaseSteps {
                 mydriver.switchTo().window(tab);
             }
         }
+        // Step 6
         formSteps.checkMyTabStep("Выбор полиса");
         formSteps.coverChoiseStep();
+
+        // Step 7 - 8
         formSteps.registerStep();
         formSteps.fillAllFieldsStep(data);
+
+        // Step 9
         formSteps.checkAllFieldsStep(data);
 
+        // Step 10 - 11
         formSteps.continueStep();
         formSteps.checkErrorStep("Заполнены не все обязательные поля");
 

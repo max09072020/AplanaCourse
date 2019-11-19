@@ -52,7 +52,7 @@ public class FormSteps extends BaseSteps{
     }
 
     @Step("пользователь заполняет все поля:")
-    public void fillAllFieldsStep (HashMap<String , String > fields){
+    public void fillAllFieldsStep (HashMap<String, String > fields){
        fields.forEach(this::fillFieldStep);
     }
 
@@ -61,7 +61,7 @@ public class FormSteps extends BaseSteps{
         Assert.assertEquals("active", new FormPage(mydriver).tabIsActiveOrNot(tabName));
     }
 
-    @Step("пользователь выбирает тип покрытия Минимальный ")
+    @Step("пользователь выбирает тип покрытия: Минимальный")
     public void coverChoiseStep (){
        new FormPage(mydriver).coverChoice.click();
     }
@@ -119,6 +119,6 @@ public class FormSteps extends BaseSteps{
 
     @Step("пользователь проверяет ошибку")
     public void checkErrorStep(String error){
-        Assert.assertEquals(error, new FormPage(mydriver).error.getText());
+        Assert.assertEquals("Сообщение не соответствует ожидаемому",error, new FormPage(mydriver).error.getText());
     }
 }
