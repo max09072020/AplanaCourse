@@ -13,7 +13,7 @@ public class BaseSteps {
 
     protected static WebDriver mydriver;
     protected static String baseURL;
-    public static Properties properties = TestProperties.getOnlyOne().getProperties();
+    public static Properties properties = TestProperties.getINSTANCE().getProperties();
 
     public static WebDriver getMydriver() {
         return mydriver;

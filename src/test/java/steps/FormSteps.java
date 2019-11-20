@@ -4,48 +4,47 @@ import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import pages.FormPage;
 import ru.yandex.qatools.allure.annotations.Step;
-
 import java.util.HashMap;
 
-public class FormSteps extends BaseSteps{
+public class FormSteps {
 
     @Step("пользователь заполняет поле {0} значением {1}")
     public void fillFieldStep (String field, String value) {
-        FormPage form = new FormPage(mydriver);
+        FormPage form = new FormPage();
         switch (field) {
             case "LastName":
-                form.insLastName.sendKeys(value);
+                form.fillField(form.insLastName, value);
                 break;
             case "Name":
-                form.insName.sendKeys(value);
+                form.fillField(form.insName,value);
                 break;
             case "DOB":
-                form.insBirthDate.sendKeys(value);
+                form.fillField(form.insBirthDate, value);
                 form.insBirthDate.sendKeys(Keys.TAB);
                 break;
             case "Фамилия":
-                form.lastName.sendKeys(value);
+                form.fillField(form.lastName, value);
                 break;
             case "Имя":
-                form.name.sendKeys(value);
+                form.fillField(form.name, value);
                 break;
             case "Отчество":
-                form.middlename.sendKeys(value);
+                form.fillField(form.middlename, value);
                 break;
             case "Дата рождения":
-                form.birthDate.sendKeys(value);
+                form.fillField(form.birthDate, value);
                 break;
             case "Серия паспорта":
-                form.passSeries.sendKeys(value);
+                form.fillField(form.passSeries, value);
                 break;
             case "Номер паспорта":
-                form.passNumber.sendKeys(value);
+                form.fillField(form.passNumber, value);
                 break;
             case "Дата Выдачи":
-                form.issueDate.sendKeys(value);
+                form.fillField(form.issueDate, value);
                 break;
             case "Место Выдачи":
-                form.issuePlace.sendKeys(value);
+                form.fillField(form.issuePlace, value);
                 break;
             default:  throw new AssertionError("Поле '" + field + "' не объявлено на странице");
         }
@@ -58,26 +57,26 @@ public class FormSteps extends BaseSteps{
 
     @Step("пользователь проверяет вкладку {0} на которой находится")
     public void checkMyTabStep(String tabName){
-        Assert.assertEquals("active", new FormPage(mydriver).tabIsActiveOrNot(tabName));
+        Assert.assertEquals("active", new FormPage().tabIsActiveOrNot(tabName));
     }
 
     @Step("пользователь выбирает тип покрытия Минимальный ")
     public void coverChoiseStep (){
-       new FormPage(mydriver).coverChoice.click();
+       new FormPage().coverChoice.click();
     }
 
     @Step("пользователь нажимает кнопку - Оформить")
     public void registerStep (){
-        new FormPage(mydriver).registerButton.click();
+        new FormPage().registerButton.click();
     }
 
     @Step("пользователь нажимает кнопку - Продолжить")
     public void continueStep (){
-        new FormPage(mydriver).saveButton.click();
+        new FormPage().saveButton.click();
     }
 
     public String getFieldValue(String field){
-        FormPage form = new FormPage(mydriver);
+        FormPage form = new FormPage();
         switch (field){
             case "LastName":
                 return form.insLastName.getAttribute("value");
@@ -119,6 +118,6 @@ public class FormSteps extends BaseSteps{
 
     @Step("пользователь проверяет ошибку")
     public void checkErrorStep(String error){
-        Assert.assertEquals(error, new FormPage(mydriver).error.getText());
+        Assert.assertEquals(error, new FormPage().error.getText());
     }
 }

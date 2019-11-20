@@ -1,10 +1,10 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import steps.BaseSteps;
 
 public class MainPage {
 
@@ -17,8 +17,8 @@ public class MainPage {
     @FindBy(xpath = "//a[@target='_blank']//img[contains(@src, 'content/person/travel/banner')]")
     public WebElement onlineForm;
 
-    public MainPage (WebDriver driver){
-        PageFactory.initElements(driver,this);
+    public MainPage (){
+        PageFactory.initElements(BaseSteps.getMydriver(),this);
     }
 
     public void selectMainMenu (String menuItem){

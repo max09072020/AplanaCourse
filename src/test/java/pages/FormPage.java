@@ -1,10 +1,11 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import steps.BaseSteps;
+
 import java.util.concurrent.TimeUnit;
 
 public class FormPage {
@@ -65,9 +66,9 @@ public class FormPage {
     @FindBy(xpath = "//div[@ng-show = 'tryNext && myForm.$invalid']")
     public WebElement error;
 
-    public FormPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+    public FormPage() {
+        PageFactory.initElements(BaseSteps.getMydriver(), this);
+        BaseSteps.getMydriver().manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
     }
 
     public String tabIsActiveOrNot(String tabName) {
