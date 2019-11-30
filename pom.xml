@@ -43,6 +43,12 @@
                             <value>util.AllureListener</value>
                         </property>
                     </properties>
+                    <systemProperties>
+                            <property>
+                                <name>allure.results.directory</name>
+                                <value>C:\Users\Maks\.jenkins\workspace\maven-jlr\allure-results</value>
+                            </property>
+                    </systemProperties>
                 </configuration>
             </plugin>
             <plugin>
